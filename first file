@@ -1,0 +1,77 @@
+# Klasse für einen Schüler
+class Schueler:
+    def __init__(self, name, alter):
+        """
+        Initialisiert ein Schülerobjekt mit Name und Alter.
+        """
+        self.name = name
+        self.alter = alter
+
+    def vorstellen(self):
+        """
+        Gibt eine kurze Vorstellung des Schülers aus.
+        """
+        print("Hallo, mein Name ist", self.name, "und ich bin", self.alter, "Jahre alt.")
+
+    def geburtstag_feiern(self):
+        """
+        Aktualisiert das Alter des Schülers um 1 Jahr und gibt eine Nachricht aus.
+        """
+        self.alter += 1
+        print("Alles Gute zum Geburtstag,", self.name, "! Du bist jetzt", self.alter, "Jahre alt.")
+
+
+# Klasse für eine Schulklasse
+class Schulklasse:
+    def __init__(self, klasse):
+        """
+        Initialisiert eine Schulklasse mit der angegebenen Klassenbezeichnung.
+        """
+        self.klasse = klasse
+        self.schueler = []
+
+    def schueler_hinzufuegen(self, schueler):
+        """
+        Fügt einen Schüler zur Schulklasse hinzu.
+        """
+        self.schueler.append(schueler)
+        print(schueler.name, "wurde zur Klasse", self.klasse, "hinzugefügt.")
+
+    def schueler_entfernen(self, schueler):
+        """
+        Entfernt einen Schüler aus der Schulklasse.
+        """
+        self.schueler.remove(schueler)
+        print(schueler.name, "wurde aus der Klasse", self.klasse, "entfernt.")
+
+    def klassenliste_anzeigen(self):
+        """
+        Zeigt die Liste der Schüler in der Schulklasse an.
+        """
+        print("Klassenliste für", self.klasse, ":")
+        for schueler in self.schueler:
+            print("- ", schueler.name)
+
+
+# Beispielanwendung
+# Erstelle eine Schulklasse
+klasse1 = Schulklasse("1A")
+
+# Erstelle Schülerobjekte und füge sie der Klasse hinzu
+schueler1 = Schueler("Max", 10)
+klasse1.schueler_hinzufuegen(schueler1)
+
+schueler2 = Schueler("Lisa", 11)
+klasse1.schueler_hinzufuegen(schueler2)
+
+# Zeige die Klassenliste an
+klasse1.klassenliste_anzeigen()
+
+# Feiere den Geburtstag von Schüler 1
+schueler1.geburtstag_feiern()
+
+# Entferne Schüler 2 aus der Klasse
+klasse1.schueler_entfernen(schueler2)
+
+# Zeige die aktualisierte Klassenliste an
+klasse1.klassenliste_anzeigen()
